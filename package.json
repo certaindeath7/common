@@ -9,7 +9,7 @@
   ],
   "type": "module",
   "scripts": {
-    "clean": "del-cli ./build/*",
+    "clean": "trash-cli ./build/*",
     "build": "npm run clean && tsc",
     "pub": "git add . && git commit -m \"Updates\" && npm version patch && npm run build && npm publish"
   },
@@ -17,7 +17,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "del-cli": "^4.0.1",
     "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "trash-cli": "^4.0.0"
   }
 }
