@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 
 export const requireAuth = (req: Request, res: Response, next: NextFunction) => {
   if (!req.currentUser) {
-    return res.status(401).json({ errors: [{ msg: "User is not authorized" }] });
+    return res.status(401).json({ errors: [{ msg: "The user is not authorized" }] });
   }
   next();
 };
