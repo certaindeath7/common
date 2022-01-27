@@ -1,5 +1,9 @@
 {
   "name": "@zenitsu/sharedlogic",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/certaindeath7/common"
+  },
   "version": "1.0.14",
   "description": "",
   "main": "./build/index.js",

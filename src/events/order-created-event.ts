@@ -6,6 +6,7 @@ export interface IOrderCreatedEvent {
     id: string;
     userId: string;
     status: OrderStatus;
+    version: number;
     expiresAt: string;
     tickets: {
       id: string;
