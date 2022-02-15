@@ -1,5 +1,5 @@
-import { Message, Stan } from "node-nats-streaming";
-import { Subjects } from "./subjects";
+import { Message, Stan } from 'node-nats-streaming';
+import { Subjects } from './subjects';
 
 interface IEvent {
   subject: Subjects;
@@ -8,10 +8,10 @@ interface IEvent {
 
 // generic type, arguments for type
 export abstract class Listener<T extends IEvent> {
-  abstract subject: T["subject"];
+  abstract subject: T['subject'];
   abstract queueGroupName: string;
-  abstract onMessage(data: T["data"], msg: Message): void;
-  private client: Stan;
+  abstract onMessage(data: T['data'], msg: Message): void;
+  protected client: Stan;
   protected ackWait = 5 * 1000;
 
   constructor(client: Stan) {
@@ -32,7 +32,7 @@ export abstract class Listener<T extends IEvent> {
       this.queueGroupName,
       this.subscriptionOptions()
     );
-    subscription.on("message", (msg: Message) => {
+    subscription.on('message', (msg: Message) => {
       console.log(`Message received: ${this.subject} / ${this.queueGroupName}`);
       const parsedData = this.parseMessage(msg);
       this.onMessage(parsedData, msg);
@@ -41,6 +41,6 @@ export abstract class Listener<T extends IEvent> {
 
   parseMessage(msg: Message) {
     const data = msg.getData();
-    return typeof data === "string" ? JSON.parse(data) : JSON.parse(data.toString("utf8"));
+    return typeof data === 'string' ? JSON.parse(data) : JSON.parse(data.toString('utf8'));
   }
 }
