@@ -4,10 +4,10 @@ export interface ITicketCreatedEvent {
   subject: Subjects.TicketCreated;
   data: {
     id: string;
-    title: string;
     version: number;
+    title: string;
     price: number;
     userId: string;
-    orderId?: string;
+    orderId: string | undefined;
   };
 }
