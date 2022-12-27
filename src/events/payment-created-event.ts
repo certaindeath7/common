@@ -5,5 +5,6 @@ export interface IPaymentCreatedEvent {
   data: {
     id: string;
     orderId: string;
+    stripeId: string;
   };
 }
